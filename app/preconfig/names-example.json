@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Matches name field in devices.json",
+    "ip": "192.168.0.100"
+  },
+  {
+    "name": "Matches name field in devices.json",
+    "ip": "192.168.0.101"
+  }
+]
