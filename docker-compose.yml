@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  mtghs:
+    image: ghcr.io/teejo75/mtghs:latest
+    ports:
+      - 8000:80
+    volumes:
+      - ./config:/app/config
+    restart: unless-stopped
