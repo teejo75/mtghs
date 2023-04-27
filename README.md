@@ -106,7 +106,7 @@ response_template:
   {% set resp = http_request.last_response().json() %}
   {resp["status"]}
 # This enables a power button in mainsail.
-bound_services: klipper  
+bound_services: klipper  # You can remove this line for non printer power sources where you don't need Klipper to restart.
 ```
 
 ### Building your own image
