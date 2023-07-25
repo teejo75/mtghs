@@ -14,7 +14,7 @@ This service makes use of the [tinytuya](https://github.com/jasonacox/tinytuya) 
 You will need to use some of their guides in order to get required information for your devices.
 
 This service is intended to run as a docker container (easiest), but you can also run it directly by cloning the repository if you prefer.
-I recommend setting up a venv. The command to launch the service is `uvicorn main:app --host 0.0.0.0`.
+I recommend setting up a venv. The command to launch the service is `uvicorn main:app --host 0.0.0.0` inside the `app` directory.
 
 ## Initial Setup
 I strongly recommend assigning static IP addresses for each device that you want to control with this service. You can do this via static DHCP mapping on your DHCP server or router.

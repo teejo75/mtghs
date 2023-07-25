@@ -14,4 +14,4 @@ RUN chown -R 1000:1000 /app && chmod +x /app/tinytuya.sh
 
 VOLUME /app/config
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["./start.sh"]
