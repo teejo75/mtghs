@@ -10,7 +10,9 @@ RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
 COPY ./app /app
 
-RUN chown -R 1000:1000 /app && chmod +x /app/tinytuya.sh
+COPY ./start.sh /start.sh
+
+RUN chown -R 1000:1000 /app && chmod +x /app/tinytuya.sh && chmod +x /app/prestart.sh && chmod +x /start.sh
 
 VOLUME /app/config
 
