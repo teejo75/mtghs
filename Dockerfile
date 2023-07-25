@@ -1,4 +1,4 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10-slim
+FROM python:3.11.4-slim
 
 LABEL org.opencontainers.image.source=https://github.com/teejo75/mtghs
 LABEL org.opencontainers.image.description="Moonraker Tuya Generic HTTP Server"
@@ -13,3 +13,5 @@ COPY ./app /app
 RUN chown -R 1000:1000 /app && chmod +x /app/tinytuya.sh
 
 VOLUME /app/config
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
