@@ -31,7 +31,8 @@ jobs:
       # From: https://docs.docker.com/build/ci/github-actions/manage-tags-labels/
       - name: Docker meta
         id: meta
-        uses: docker/metadata-action@v4.4.0
+        # Update from v4.4.0
+        uses: docker/metadata-action@v4.6.0
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
@@ -43,29 +44,35 @@ jobs:
             latest=true
 
       - name: Checkout repository
-        uses: actions/checkout@v3.5.2
+        # Update from v3.5.2
+        uses: actions/checkout@v3.5.3
 
       - name: Setup QEMU
-        uses: docker/setup-qemu-action@v2.1.0
+        # Update from v2.1.0
+        uses: docker/setup-qemu-action@v2.2.0
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@v3.0.2
+        # Update from v3.0.2
+        uses: sigstore/cosign-installer@v3.1.1
         with:
-          cosign-release: 'v2.0.1'
+          # Update from v2.0.1
+          cosign-release: 'v2.1.1'
 
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
-        uses: docker/setup-buildx-action@v2.5.0
+        # Update from v2.5.0
+        uses: docker/setup-buildx-action@v2.8.0
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
       - name: Log into registry ${{ env.REGISTRY }}
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@v2.1.0
+        # Updatr from v2.1.0
+        uses: docker/login-action@v2.2.0
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
@@ -75,7 +82,8 @@ jobs:
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image
         id: build-and-push
-        uses: docker/build-push-action@v4.0.0
+        # Updatr from v4.0.0
+        uses: docker/build-push-action@v4.1.1
         with:
           context: .
           platforms: linux/amd64,linux/arm64
